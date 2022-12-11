@@ -2,7 +2,8 @@
 namespace App\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-class EquipsController
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+class EquipsController extends AbstractController
 {
 
     private $equips = array(
@@ -36,16 +37,13 @@ return $equip["codi"] == $codi;
 });
 if (count($resultat) > 0)
 {
-$resposta = "";
-$resultat = array_shift($resultat); #torna el primer element
-$resposta .= "<ul><li>" . $resultat["nom"] . "</li>" .
-"<li>" . $resultat["cicle"] . "</li>" .
-"<li>" . $resultat["curs"] . "</li></ul>"; /*.
-"<li>" . $resultat["membres"] . "</li></ul>";*/
-return new Response("<html><body>$resposta</body></html>");
+    return $this->render('fitxa_equip.html.twig',
+    array('equip' =>
+    array_shift($resultat)));
 }
 else
-return new Response("No s’ha trobat l’equip: $codi");
+return $this->render('fitxa_equip.html.twig', array(
+    'equip' => NULL));
 }
 
 /**
@@ -58,18 +56,8 @@ function($equip) use ($text)
 {
 return strpos($equip["nom"], $text) !== FALSE;
 });
-$resposta = "";
-if (count($resultat) > 0)
-{
-    foreach ($resultat as $equip)
-    $resposta .= "<ul><li>" . $equip["nom"] . "</li>" .
-    "<li>" . $equip["cicle"] . "</li>" .
-    "<li>" . $equip["curs"] . "</li></ul>";
-    return new Response("<html><body>" . $resposta .
-    "</body></html>");
-    }
-    else
-    return new Response("No s'han trobat equips");
-    }
+    return $this->render('llista_equips.html.twig',
+    array('equips' => $resultat));
+}
 }
 ?>
