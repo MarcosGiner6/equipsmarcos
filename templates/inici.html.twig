@@ -2,8 +2,7 @@
 {% block title %}Equips{% endblock %}
 {% block stylesheets%}
 {{ parent() }}
-<link href="{{ asset('BizLand/assets/css/style.css') }}" rel="stylesheet" />
-<link href="{{ asset('css/estilsInici.css') }}" rel="stylesheet" />
+<link href="{{ asset('BizLand/assets/css/estilsInici.css') }}" rel="stylesheet" />
 {% endblock %}
 {% block header%}
 {{ parent() }}
@@ -14,8 +13,8 @@
 <h1 id="titolInici"> Projecte Symfony Equips 2n DAW</h1>
 <p id="paragrafInici"> Inicio Programa gestió d'equips del projecte.<br/>
 IES Lluis Simarro Curs 22/23<br/>
-<a href="{{path('dades_equip')}}/4">
-<img class="imatgeInici" src=" {{ ('BizLand/assets/img/.jpg') }}"/></a>
+<a href="{{path('dades_equip')}}/2">
+<img class="imatgeInici" src=" {{ asset('BizLand/assets/img/gavi.jpeg') }}"/></a>
 </p>
 
 </body>

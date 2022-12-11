@@ -1,10 +1,20 @@
 {% extends 'base.html.twig' %}
 {% block title %}Equips{% endblock %}
+{% block stylesheets%}
+{{ parent() }}
+<link href="{{ asset('BizLand/assets/css/estilsEquip.css') }}" rel="stylesheet" />
+{% endblock %}
 {% block body %}
-<h1>Fitxa de equip</h1>
+<body>
 {% if equip %}
 {{ include ('dades_equip.html.twig', { 'equip': equip }) }}
 {% else %}
-<p>Equip no trobat!</p>
+
+<h1 id="titolEquip"> Dades Equip</h1>
+<p class="paragrafEquip"> Equip no trobat!<br/>
+<a href="{{path('inici')}}">
+<img class="imatgeEquip" src=" {{ asset('BizLand/assets/img/foto-error.jpg') }}"/></a>
+</p>
 {% endif %}
+</body>
 {% endblock %}

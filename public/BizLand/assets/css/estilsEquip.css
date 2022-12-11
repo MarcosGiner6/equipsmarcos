@@ -1,0 +1,59 @@
+h1#titolEquip {
+    width: 50%;
+    color: green;
+    border: solid green 1px;
+    margin: 10px auto;
+    text-align:center;
+    padding:10px;
+    background-color:white;
+}
+
+.paragrafEquip{
+    width: 80%;
+    border: solid black 1px;
+    margin: 10px auto;
+    text-align:center;
+    padding:10px;
+    background-color:#f2e7c3;
+}
+
+.paragrafEquip2{
+    width: 80%;
+    margin: 10px auto;
+    text-align:center;
+    padding:10px;
+    background-color:#f2e7c3;
+}
+.imatgeEquip{
+    width: 400px;
+    margin: 10px;
+}
+    
+body{
+    background-color:#EEE;
+}
+
+ul.paragrafEquip{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+}
+
+.lili{
+    list-style: none;
+    border: 1px solid black;
+    width: 50%;
+}
+
+.epa{
+    background-color: f2e7c3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.imatgeXicoteta{
+    width: 20px;
+}

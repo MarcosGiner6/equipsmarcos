@@ -1,6 +1,29 @@
-<ul>
-<li><strong>{{ equip.nom }}</strong></li>
-<li><strong>Cicle</strong>: {{ equip.cicle }}</li>
-<li><strong>Curs</strong>: {{ equip.curs }}</li>
-<li><strong>Membres</strong>: {{ equip.membres[0]}}</li>
+{% block body%}
+<body>
+
+<h1 id="titolEquip"> Dades Equip </h1>
+<p class="paragrafEquip"> Projecte 2n Daw<br/>
+<img class="imatgeEquip" src=" {{ asset('BizLand/assets/img/seleccion.jpg') }}"/>
+</p>
+
+<ul class="paragrafEquip">
+<li class="lili"><strong>{{ equip.nom }}</strong></li>
+<li class="lili"><strong>Cicle</strong>: {{ equip.cicle }}</li>
+<li class="lili"><strong>Curs</strong>: {{ equip.curs }}</li>
+<div class="epa">
+<li class="lili"><strong>Membres</strong>:</li>
+<ul class="paragrafEquip">
+{% for membre in equip.membres %}
+<li class="lili">{{membre}}</li>
+{% endfor %}
 </ul>
+</div>
+</ul>
+
+<ul class="paragrafEquip">
+<img class="imatgeXicoteta" src=" {{ asset('BizLand/assets/img/casiua.jpg') }}"/>
+<a href="{{path('inici')}}">Tornar a l'inici</a>
+</ul>
+
+</body>
+{% endblock %}
