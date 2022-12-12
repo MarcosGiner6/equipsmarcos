@@ -9,12 +9,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class IniciController extends AbstractController
 
 {
-    private $dadesEquips;
-    public function __construct($dadesEquips)
-    {
-    $this->dadesEquips = $dadesEquips;
-    }
-
     /**
     * @Route("/", name="inici")
     */
