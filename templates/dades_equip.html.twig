@@ -2,28 +2,37 @@
 <body>
 
 <h1 id="titolEquip"> Dades Equip </h1>
-<p class="paragrafEquip"> Projecte 2n Daw<br/>
-<img class="imatgeEquip" src=" {{ asset('BizLand/assets/img/seleccion.jpg') }}"/>
-</p>
 
-<ul class="paragrafEquip">
-<li class="lili"><strong>{{ equip.nom }}</strong></li>
-<li class="lili"><strong>Cicle</strong>: {{ equip.cicle }}</li>
-<li class="lili"><strong>Curs</strong>: {{ equip.curs }}</li>
-<div class="epa">
-<li class="lili"><strong>Membres</strong>:</li>
-<ul class="paragrafEquip">
-{% for membre in equip.membres %}
-<li class="lili">{{membre}}</li>
-{% endfor %}
-</ul>
+<div class="paragrafEquip">
+<p> Projecte 2n Daw<br/></p>
+<h2 id="titol-imatge-equips">Imatge Equip</h2>
+
+{% if equip %}
+
+<img class="imatgeEquip" src=" {{ asset('BizLand/assets/img/'~ equip.imatge) }}"/>
+
+ <ul class="llistatEquip">
+            <li><strong>{{ equip.nom }}</strong></li>
+            <li><strong>Cicle</strong>: {{ equip.cicle }}</li>
+            <li><strong>Curs</strong>: {{ equip.curs }}</li>
+            <li><strong>Membres</strong>:
+                <ul class="llistatMiembros">
+                    {% for membre in equip.membres %}
+                        <li>{{ membre }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+
+        </ul>
 </div>
-</ul>
 
-<ul class="paragrafEquip">
+{% endif %}
+
+<p class="paragrafEquip">
 <img class="imatgeXicoteta" src=" {{ asset('BizLand/assets/img/casiua.jpg') }}"/>
 <a href="{{path('inici')}}">Tornar a l'inici</a>
-</ul>
+
+</p>
 
 </body>
 {% endblock %}

@@ -25,3 +25,31 @@ p#paragrafInici{
 body{
     background-color:#DDD;
 }
+
+h2#titol-llistat {
+    width: 50%;
+    color: blue;
+    border: solid blue 1px;
+    margin: 10px auto;
+    text-align:center;
+    padding:10px;
+    background-color:#f2e7c3;
+}
+
+div#paragrafInici{
+    width: 80%;
+    border: solid black 1px;
+    margin: 10px auto;
+    text-align:center;
+    padding:10px;
+    background-color:#f2e7c3;
+}
+
+.llistat-equips-inici{
+    width: 30%;
+    border: solid black 1px;
+    margin: 10px auto;
+    text-align:center;
+    padding:10px;
+    background-color:#f2e7c3;
+}

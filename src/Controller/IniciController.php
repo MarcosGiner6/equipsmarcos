@@ -13,5 +13,13 @@ class IniciController extends AbstractController
     {
         return $this->render('inici.html.twig');
     }
+
+    private $dadesEquips;
+    public function __construct($dadesEquips)
+    {
+    $this->dadesEquips = $dadesEquips;
     }
+
+
+}
 ?>

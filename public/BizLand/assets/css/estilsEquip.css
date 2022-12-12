@@ -17,13 +17,6 @@ h1#titolEquip {
     background-color:#f2e7c3;
 }
 
-.paragrafEquip2{
-    width: 80%;
-    margin: 10px auto;
-    text-align:center;
-    padding:10px;
-    background-color:#f2e7c3;
-}
 .imatgeEquip{
     width: 400px;
     margin: 10px;
@@ -33,27 +26,23 @@ body{
     background-color:#EEE;
 }
 
-ul.paragrafEquip{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    list-style: none;
-}
-
-.lili{
-    list-style: none;
-    border: 1px solid black;
-    width: 50%;
-}
-
-.epa{
-    background-color: f2e7c3;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 50%;
-}
-
 .imatgeXicoteta{
     width: 20px;
+}
+
+#titol-imatge-equips{
+    width: 50%;
+    color: red;
+    margin: 0 auto;
+}
+
+.llistatEquip{
+    background-color: rgb(202, 185, 141);
+    border: 1px solid black;
+    list-style: none;
+}
+
+.llistatMiembros{
+    
+    
 }
