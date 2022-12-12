@@ -37,12 +37,21 @@ body{
 }
 
 .llistatEquip{
-    background-color: rgb(202, 185, 141);
-    border: 1px solid black;
+    width: 60%;
+    border: solid black 1px;
+    margin: 10px auto;
+    text-align:center;
+    padding:10px;
+    background-color:#dbcea4;
     list-style: none;
+    line-height: 2;
 }
 
 .llistatMiembros{
-    
-    
+    width: 60%;
+    margin: 5px auto;
+    text-align:center;
+    padding:10px;
+    background-color:#dbcea4;
+    list-style: none;
 }
