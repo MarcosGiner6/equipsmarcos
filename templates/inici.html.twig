@@ -23,7 +23,7 @@ IES Lluis Simarro Curs 22/23<br/>
 
 <div id="paragrafInici">
 
-    <div class="llistat-equips-inici">
+    {#<div class="llistat-equips-inici">
         <a href ="{{ path('dades_equip') }}"> Equip Roig</a>
     </div>
     <div class="llistat-equips-inici">
@@ -35,12 +35,13 @@ IES Lluis Simarro Curs 22/23<br/>
     <div class="llistat-equips-inici">
         <a href ="{{ path('dades_equip') }}/4"> Equip Groc</a>
     </div>
- 
-    {# {% for equip in equips %}
-        <div class="">
+    #}
+
+    {% for equip in equips %}
+        <div class="llistat-equips-inici">
             <a href ="{{ path('dades_equip') }}/{{ equip.getId }}"> {{equip.getNom}}</a>
         </div>
-    {% endfor %} #}
+    {% endfor %} 
 </div>
 
 </body>

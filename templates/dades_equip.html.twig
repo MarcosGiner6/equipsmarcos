@@ -1,27 +1,29 @@
 {% block body%}
 <body>
 
-<h1 id="titolEquip"> Dades Equip </h1>
+<h1 id="titolEquip"> Dades Equip ID: {{equip.getId}} </h1>
 
 <div class="paragrafEquip">
 <p> Projecte 2n Daw<br/></p>
-<h2 id="titol-imatge-equips">Imatge Equip</h2>
+
 
 {% if equip %}
-
-<img class="imatgeEquip" src=" {{ asset('BizLand/assets/img/'~ equip.imatge) }}"/>
+<h2 id="titol-imatge-equips">Imatge Equip</h2>
+<img class="imatgeEquip" src="{{asset('/BizLand/assets/img/'~equip.getImatge)}}"/>
 
  <ul class="llistatEquip">
-            <li><strong>{{ equip.nom }}</strong></li>
-            <li><strong>Cicle</strong>: {{ equip.cicle }}</li>
-            <li><strong>Curs</strong>: {{ equip.curs }}</li>
-            <li><strong>Membres</strong>:
+            <li><strong>Codi</strong>: {{ equip.getId }}</li>
+            <li><strong>Nom</strong>: {{ equip.getNom }}</li>
+            <li><strong>Cicle</strong>: {{ equip.getCicle }}</li>
+            <li><strong>Curs</strong>: {{ equip.getCurs }}</li>
+            <li><strong>Nota</strong>: {{ equip.getNota }}</li>
+            {#<li><strong>Membres</strong>:
                 <ul class="llistatMiembros">
                     {% for membre in equip.membres %}
                         <li>{{ membre }}</li>
                     {% endfor %}
                 </ul>
-            </li>
+            </li>#}
 
     </ul>
 </div>

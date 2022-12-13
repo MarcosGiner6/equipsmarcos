@@ -21,22 +21,25 @@ class EquipsController extends AbstractController
 /**
 * @Route("/equip/{codi}", name="dades_equip", requirements={"codi"="\d+"})
 */
-public function fitxa($codi=1)
+public function fitxa(ManagerRegistry $doctrine,$codi=1)
 {
+$repositori = $doctrine->getRepository(Equip::class);
+ $equip = $repositori->find($codi);
+/*
 $resultat = array_filter($this->equips,
 function($equip) use ($codi)
 {
 return $equip["codi"] == $codi;
-});
-if (count($resultat) > 0)
-{
-    return $this->render('fitxa_equip.html.twig',
-    array('equip' =>
-    array_shift($resultat)));
-}
-else
-return $this->render('fitxa_equip.html.twig', array(
-    'equip' => NULL));
+});*/
+if ($equip!=null)
+    
+    return $this->render('fitxa_equip.html.twig', array('equip'=>$equip,
+    'codi'=>$codi));
+
+    else
+
+    return $this->render('fitxa_equip.html.twig', array(
+        'equip' => NULL,'codi'=>NULL));
 }
 
 #[Route('/equip/inserir', name:'inserir_equip')]
@@ -53,11 +56,68 @@ $entityManager->persist($equip);
 try
 {
     $entityManager->flush();
-    return new Response("Equip inserit amb id ". $equip->getId());
+    return $this->render('inserir_equip.html.twig',
+    array('equips'=>$equip,'error'=>NULL));
+    
 } catch (\Exception $e) {
-    return new Response("Error inserint objecte");
+    return $this->render('inserir_equip.html.twig',
+    array('equips' => $equip,'error'=>$e->getMessage()));
 }
 }
+
+#[Route('/equip/inserirmultiple' ,name:'inserir_equips')]
+public function inserirmultiple(ManagerRegistry $doctrine)
+{
+    $entityManager = $doctrine->getManager();
+    $equip1 = new equip();
+    $equip1->setNom("Equip Roig");
+    $equip1->setCicle("DAW");
+    $equip1->setCurs("22/23");
+    $equip1->setNota(5.25);
+    $equip1->setImatge("roig.png");
+    $entityManager->persist($equip1);
+
+    $equip2 = new equip();
+    $equip2->setNom("Equip Verd");
+    $equip2->setCicle("DAM");
+    $equip2->setCurs("22/23");
+    $equip2->setNota(4.4);
+    $equip2->setImatge("verd.png");
+    $entityManager->persist($equip2);
+
+    $equip3 = new equip();
+    $equip3->setNom("Equip Blau");
+    $equip3->setCicle("ASIR");
+    $equip3->setCurs("22/23");
+    $equip3->setNota(7.8);
+    $equip3->setImatge("blau.png");
+    $entityManager->persist($equip3);
+
+    $equip4 = new equip();
+    $equip4->setNom("Equip Groc");
+    $equip4->setCicle("ASIX");
+    $equip4->setCurs("22/23");
+    $equip4->setNota(3.7);
+    $equip4->setImatge("groc.png");
+    $entityManager->persist($equip4);
+
+    $equips=array($equip1,$equip2,$equip3,$equip4);
+    try{
+
+    $entityManager->flush();
+
+    return $this->render('inserir_equip_multiple.html.twig', array(
+        'equips' => $equips, "error"=>null));
+
+    } catch (\Exception $e) {
+
+        $error=$e->getMessage();
+        return $this->render('inserir_equip_multiple.html.twig', array(
+            'equips' => $equips, "error"=>$error));
+            
+    }
+}
+
 
 /**
 * @Route("/equip/{text}", name="buscar_equip")

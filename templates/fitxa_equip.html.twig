@@ -7,7 +7,7 @@
 {% block body %}
 <body>
 {% if equip %}
-{{ include ('dades_equip.html.twig', { 'equip': equip }) }}
+{{ include ('dades_equip.html.twig', { 'equip': equip, 'codi':codi }) }}
 {% else %}
 
 <h1 id="titolEquip"> Dades Equip</h1>

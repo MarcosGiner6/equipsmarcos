@@ -1,0 +1,53 @@
+{% block stylesheets%}
+<link href="{{ asset('BizLand/assets/css/estilsInserir.css') }}" rel="stylesheet" />
+{% endblock %}
+{% block body%}
+<body>
+
+<h1 id="titolInserir"> Projecte Symfony Equips 2n DAW </h1>
+
+
+
+{% if error %}
+
+<h2 id="titolInserir"> Error en la insercio dels equips:<br/>
+
+    {% for equip in equips %}
+
+        {{equip.getNom}}<br/>
+
+    {% endfor %}
+
+</h2>
+
+<div id="paragrafInserir">
+
+<img class="imatgeInserir" src=" {{ asset('BizLand/assets/img/triste.jpg') }}"/>
+<div id="paragrafInserir">{{error}}</div>
+
+{% else %}
+
+    <p id="paragrafInserir"> Equips:<br/>
+
+{% for equip in equips %}
+
+    {{equip.getNom}} amb id: {{equip.getId}} <br/>
+
+{% endfor %}
+
+inserits correctament<br/></p>
+
+    <img class="imatgeInserir" src=" {{ asset('BizLand/assets/img/equipPerDefecte.png') }}"/>
+
+{% endif %}
+
+</div>
+
+    <p id="paragrafInserir">
+    <img class="imatgeXicoteta" src=" {{ asset('BizLand/assets/img/casiua.jpg') }}"/>
+    <a href="{{path('inici')}}">Tornar a l'inici</a>
+
+    </p>
+
+</body>
+{% endblock %}
