@@ -1,0 +1,34 @@
+{% block stylesheets%}
+<link href="{{ asset('BizLand/assets/css/estilsInserir.css') }}" rel="stylesheet" />
+{% endblock %}
+{% block body%}
+<body>
+
+<h1 id="titolInserir"> Projecte Symfony Equips 2n DAW </h1>
+
+<div id="paragrafInserir">
+
+{% if error %}
+
+<p id="paragrafInserir"> Error en la insercio del membre: {{membre.getNom}}.<br/></p>
+<img class="imatgeInserir" src=" {{ asset('BizLand/assets/img/triste.jpg') }}"/>
+<div id="paragrafInserir">{{error}}</div>
+
+{% else %}
+
+<p id="paragrafInserir"> Membre {{membre.getId}} amb nom {{membre.getNom}} inserit correctament<br/></p>
+
+<img class="imatgeInserir" src=" {{ asset('BizLand/assets/img/membrePerDefecte.jpg') }}"/>
+
+{% endif %}
+
+</div>
+
+<p id="paragrafInserir">
+<img class="imatgeXicoteta" src=" {{ asset('BizLand/assets/img/casiua.jpg') }}"/>
+<a href="{{path('inici')}}">Tornar a l'inici</a>
+
+</p>
+
+</body>
+{% endblock %}

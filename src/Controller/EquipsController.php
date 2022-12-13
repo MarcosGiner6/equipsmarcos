@@ -1,11 +1,11 @@
 <?php
 namespace App\Controller;
+use App\Entity\Equip;
 use App\Service\ServeiDadesEquips;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use App\Entity\Equip;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class EquipsController extends AbstractController
 {
 
@@ -118,6 +118,22 @@ public function inserirmultiple(ManagerRegistry $doctrine)
     }
 }
 
+#[Route('/equip/nota/{nota}' ,name:'filtro_nota', requirements: ['codi' => '\d+'])]
+    public function filtrar(ManagerRegistry $doctrine,$nota=0)
+{
+
+    $repositori = $doctrine->getRepository(Equip::class);
+        
+    $equips = $repositori->findByNote($nota);
+    $equipssort=rsort($equips);
+
+    if ($equips!=null)
+    return $this->render('filtrar_notes_equip.html.twig', array('equips'=>$equips));
+    else
+    return $this->render('filtrar_notes_equip.html.twig', array(
+    'equips' => NULL));
+
+}
 
 /**
 * @Route("/equip/{text}", name="buscar_equip")

@@ -39,6 +39,16 @@ class EquipRepository extends ServiceEntityRepository
         }
     }
 
+    public function findByNote($nota): array
+    {
+        $qb = $this->createQueryBuilder('e')
+        ->andWhere('e.nota >=:nota')
+        ->setParameter('nota', $nota)
+        ->getQuery();
+        
+        return $qb->execute();
+    }
+
 //    /**
 //     * @return Equip[] Returns an array of Equip objects
 //     */
